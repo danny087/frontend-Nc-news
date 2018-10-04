@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import { Link, Route } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
+import Comments from "./Comments";
 
 class Article extends Component {
   state = {
     article: [],
-    title: ""
+    title: "",
+    id: ""
   };
 
   render() {
@@ -14,6 +16,7 @@ class Article extends Component {
       <div>
         <h1>{this.state.title}</h1>
         <p>{this.state.article}</p>
+        <Comments articleid={this.state.id} />
       </div>
     );
   }
@@ -28,7 +31,8 @@ class Article extends Component {
         console.log(data.article, "<<<<<<");
         this.setState({
           article: data.article.body,
-          title: data.article.title
+          title: data.article.title,
+          id: data.article._id
         });
       });
   }

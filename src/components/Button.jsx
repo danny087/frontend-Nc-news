@@ -8,7 +8,6 @@ const Button = props => {
   return (
     <div>
       {props.buttonNames.map(buttons => {
-        console.log(buttons.split(" ")[0]);
         const topic = buttons.split(" ")[0];
         return (
           <Link to={`/topics/${topic}/articles`}>
