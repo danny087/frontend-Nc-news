@@ -3,6 +3,8 @@ import { Link, Route } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
 import Button from "./Button";
+import Votes from "./Votes";
+import ArticleAdder from "./ArticleAdder";
 
 class Articles extends Component {
   state = {
@@ -12,25 +14,27 @@ class Articles extends Component {
   render() {
     return (
       <div>
-        <h1>Northcoders News</h1>
-
+        {console.log(this.props, "@@@@@@{{{{}}}}}}")}
+        <ArticleAdder topicslug={this.props.match.params.topic_slug} />
         {this.state.articles.map(article => {
-          // console.log(article, "<<<<<<<<<<<<<<");
+          console.log(article, "<<<<<<<<<<<<<<");
 
           return (
-            <Link to={`/articles/${article._id}`}>
-              <div className="article">
-                <h1>{article.title}</h1>
-                <p>{article.body}</p>
-              </div>
-            </Link>
+            <div className="articletitle">
+              <Link to={`/articles/${article._id}`}>
+                <div className="article">
+                  <h1>{article.title}</h1>
+                </div>
+              </Link>
+              <Votes votes={article.votes} articleid={article._id} />
+            </div>
           );
         })}
       </div>
     );
   }
   componentDidMount() {
-    console.log(this.props.match.params.topic_slug, "jjjjjjj");
+    // console.log(this.props.match.params.topic_slug, "jjjjjjj");
     if (this.props.match.params.topic_slug) {
       axios
         .get(
@@ -39,7 +43,7 @@ class Articles extends Component {
           }/articles`
         )
         .then(article => {
-          console.log(article.data.article, "::::::::::::::xxx");
+          // console.log(article.data.article, "::::::::::::::xxx");
           this.setState({
             articles: article.data.article
           });
@@ -57,7 +61,7 @@ class Articles extends Component {
     }
   }
   componentDidUpdate(previousProps) {
-    console.log(this.props.match.params.topic_slug, "jjjjjjj");
+    // console.log(this.props.match.params.topic_slug, "jjjjjjj");
     if (previousProps !== this.props) {
       if (this.props.match.params.topic_slug) {
         axios
@@ -67,7 +71,7 @@ class Articles extends Component {
             }/articles`
           )
           .then(article => {
-            console.log(article.data.article, "::::::::::::::xxx");
+            // console.log(article.data.article, "::::::::::::::xxx");
             this.setState({
               articles: article.data.article
             });

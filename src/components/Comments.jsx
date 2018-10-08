@@ -2,15 +2,40 @@ import React, { Component } from "react";
 import { Link, Route } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
+import VotesForComments from "./VotesForComments";
+import DeleteComment from "./DeleteComment";
 
 class Comments extends Component {
-  state = {};
+  state = {
+    comments: []
+  };
 
   render() {
-    console.log(this.props.articleid, "oooooooooooo");
-    return <h1>helloooo</h1>;
+    console.log(this.props, "oooooooooooo");
+    return (
+      <div>
+        <h1>Comments</h1>
+        {this.state.comments.map(comment => {
+          return (
+            <div className="comments">
+              <p>{comment.body}</p>
+              {console.log(comment, "@@@@@@jjjj")}
+              <DeleteComment
+                comment={comment}
+                deleteComment={this.deleteComment}
+              />
+              <VotesForComments
+                commentid={comment._id}
+                commentvote={comment.votes}
+              />
+            </div>
+          );
+        })}
+      </div>
+    );
   }
   componentDidMount() {
+    // console.log(this.props);
     axios
       .get(
         `https://nc-newsdanny.herokuapp.com/api/articles/${
@@ -18,9 +43,32 @@ class Comments extends Component {
         }/comments`
       )
       .then(comment => {
-        console.log(comment, "@@@@@@@@@@@@");
+        // console.log(comment.data.comments, "@@@@@@@@@@@@");
+        this.setState({
+          comments: comment.data.comments
+        });
       });
   }
+  deleteComment = commentToDelete => {
+    // console.log(commentToDelete, "999999999999");
+    axios
+      .delete(
+        `https://nc-newsdanny.herokuapp.com/api/comments/${commentToDelete._id}`
+      )
+      .then(deletedComment => {
+        console.log(deletedComment, "@@@@@:::::::vgfgrtgrtgrfergerg");
+        console.log(this.state.comments, "iiiooopppooiiooppoii");
+        const comments = this.state.comments;
+        const newCommentArray = comments.filter(comment => {
+          console.log(comment, "{}{}{");
+          return comment._id !== deletedComment.data.comment._id;
+        });
+        console.log(newCommentArray, "{{{{{{{}}}}}}}}}");
+        this.setState({
+          comments: newCommentArray
+        });
+      });
+  };
 }
 
 export default Comments;

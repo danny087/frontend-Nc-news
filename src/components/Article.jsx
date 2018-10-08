@@ -3,20 +3,26 @@ import { Link, Route } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
 import Comments from "./Comments";
+import CommentAdder from "./CommentAdder";
+import DeleteComment from "./DeleteComment";
 
 class Article extends Component {
   state = {
-    article: [],
-    title: "",
-    id: ""
+    article: {}
   };
 
   render() {
+    console.log(this.state.article, "<<<<<<<<<<<<<<<llllll");
     return (
       <div>
-        <h1>{this.state.title}</h1>
-        <p>{this.state.article}</p>
-        <Comments articleid={this.state.id} />
+        <div className="articles">
+          <h1>{this.state.article.title}</h1>
+          <p>{this.state.article.body}</p>
+        </div>
+        <div>
+          <CommentAdder articleid={this.props.match.params._id} />
+          <Comments articleid={this.props.match.params._id} />
+        </div>
       </div>
     );
   }
@@ -30,9 +36,7 @@ class Article extends Component {
       .then(({ data }) => {
         console.log(data.article, "<<<<<<");
         this.setState({
-          article: data.article.body,
-          title: data.article.title,
-          id: data.article._id
+          article: data.article
         });
       });
   }

@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  background-color: rgb(218, 210, 210);
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 .App-logo {
@@ -31,6 +34,66 @@
   }
 }
 
-.article {
-  border-bottom: 5px solid red;
+.maintitle {
+  font-size: 50px;
+}
+
+.button {
+  background-color: #4caf50; /* Green */
+  border: 5px solid white;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.logo {
+  width: 540px;
+  height: auto;
+}
+
+.articletitle {
+  background-color: rgb(218, 210, 210);
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+  margin-bottom: 50px;
+  margin-top: 5px;
+  border-bottom: 5px solid #282c34;
+}
+
+.voteButton {
+  background-color: #4caf50;
+  border: 5px solid white;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.votebuttons {
+  font-size: 20px;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.articles {
+  background-color: rgb(218, 210, 210);
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+  margin-bottom: 50px;
+  margin-top: 5px;
+}
+
+.comments {
+  margin-right: 50%;
+  margin-left: 15%;
+  border: 5px solid black;
 }
