@@ -4,6 +4,7 @@ import axios from "axios";
 import "../App.css";
 import VotesForComments from "./VotesForComments";
 import DeleteComment from "./DeleteComment";
+import CommentAdder from "./CommentAdder";
 
 class Comments extends Component {
   state = {
@@ -15,6 +16,10 @@ class Comments extends Component {
     return (
       <div>
         <h1>Comments</h1>
+        <CommentAdder
+          articleid={this.props.articleid}
+          addComment={this.addComment}
+        />
         {this.state.comments.map(comment => {
           return (
             <div className="comments">
@@ -66,6 +71,20 @@ class Comments extends Component {
         console.log(newCommentArray, "{{{{{{{}}}}}}}}}");
         this.setState({
           comments: newCommentArray
+        });
+      });
+  };
+  addComment = newComment => {
+    axios
+      .post(
+        `https://nc-newsdanny.herokuapp.com/api/articles/${
+          this.props.articleid
+        }/comments`,
+        newComment
+      )
+      .then(({ data }) => {
+        this.setState({
+          comments: [data.comment, ...this.state.comments]
         });
       });
   };

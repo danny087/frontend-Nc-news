@@ -11,12 +11,10 @@ class VotesForComments extends Component {
   render() {
     return (
       <div>
-        {console.log(this.props, "hhhhhhggggg")}
-        {console.log(this.props.commentid, ":::::::::")}
         <button onClick={() => this.votechanger("up")} type="button">
           up
         </button>
-        <p>{this.props.commentvote}</p>
+        <p>{this.props.commentvote + this.state.votes}</p>
         <button onClick={() => this.votechanger("down")} type="button">
           down
         </button>
@@ -31,9 +29,10 @@ class VotesForComments extends Component {
         }?vote=${direction}`
       )
       .then(comments => {
-        console.log(comments, "hello");
+        console.log(comments.data, "hello");
         this.setState({
-          votes: comments.data.commentCount.votes
+          votes:
+            direction === "up" ? this.state.votes + 1 : this.state.votes - 1
         });
       });
   }

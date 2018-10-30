@@ -19,7 +19,7 @@ class Votes extends Component {
         >
           up
         </button>
-        <p>{this.props.votes}</p>
+        <p>{this.props.votes + this.state.votes}</p>
         <button
           className="votebuttons"
           onClick={() => this.votechanger("down")}
@@ -40,7 +40,8 @@ class Votes extends Component {
       .then(article => {
         console.log(article, "hello");
         this.setState({
-          votes: article.data.articleCount.votes
+          votes:
+            direction === "up" ? this.state.votes + 1 : this.state.votes - 1
         });
       });
   }

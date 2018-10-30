@@ -15,7 +15,7 @@ class ArticleAdder extends Component {
       <form onSubmit={this.handleSubmit}>
         <h1>post an article of your own</h1>
         <input onChange={this.handleChange} type="text" />
-        body
+        Post your thoughts here!
         <input onChange={this.handleTitleChange} type="text" />
         title
         <input type="submit" />

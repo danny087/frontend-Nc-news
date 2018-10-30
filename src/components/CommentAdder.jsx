@@ -25,23 +25,14 @@ class CommentAdder extends Component {
     });
   };
   handleSubmit = e => {
+    e.preventDefault();
     const newComment = {
       body: this.state.text,
       created_by: "5bb4a6ef08b27e551018f83c"
     };
     // console.log(this.props.articleid, "dedfergerf");
-    e.preventDefault();
 
-    axios
-      .post(
-        `https://nc-newsdanny.herokuapp.com/api/articles/${
-          this.props.articleid
-        }/comments`,
-        newComment
-      )
-      .then(addComment => {
-        this.setState({});
-      });
+    this.props.addComment(newComment);
   };
   componentDidUpdate() {}
 }

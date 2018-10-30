@@ -12,7 +12,6 @@ class Article extends Component {
   };
 
   render() {
-    console.log(this.state.article, "<<<<<<<<<<<<<<<llllll");
     return (
       <div>
         <div className="articles">
@@ -20,7 +19,6 @@ class Article extends Component {
           <p>{this.state.article.body}</p>
         </div>
         <div>
-          <CommentAdder articleid={this.props.match.params._id} />
           <Comments articleid={this.props.match.params._id} />
         </div>
       </div>
@@ -34,7 +32,6 @@ class Article extends Component {
         }`
       )
       .then(({ data }) => {
-        console.log(data.article, "<<<<<<");
         this.setState({
           article: data.article
         });

@@ -14,11 +14,8 @@ class Articles extends Component {
   render() {
     return (
       <div>
-        {console.log(this.props, "@@@@@@{{{{}}}}}}")}
         <ArticleAdder topicslug={this.props.match.params.topic_slug} />
         {this.state.articles.map(article => {
-          console.log(article, "<<<<<<<<<<<<<<");
-
           return (
             <div className="articletitle">
               <Link to={`/articles/${article._id}`}>
