@@ -13,17 +13,22 @@ class Articles extends Component {
 
   render() {
     return (
-      <div>
+      <div className="content">
         <ArticleAdder topicslug={this.props.match.params.topic_slug} />
         {this.state.articles.map(article => {
           return (
+            
             <div className="articletitle">
+            <div>
+              <Votes className="articleVote" votes={article.votes} articleid={article._id} />
+              </div>
               <Link to={`/articles/${article._id}`}>
                 <div className="article">
-                  <h1>{article.title}</h1>
+                  <h1 className="Title" className='articleTitle'>{article.title}</h1>
+                  <p>{article.body}</p>
                 </div>
               </Link>
-              <Votes votes={article.votes} articleid={article._id} />
+              
             </div>
           );
         })}

@@ -6,7 +6,7 @@ import "../App.css";
 const Button = props => {
   // console.log(props);
   return (
-    <div>
+    <div className='buttons'>
       {props.buttonNames.map(buttons => {
         const topic = buttons.split(" ")[0];
         console.log(topic, "TOPIC");
