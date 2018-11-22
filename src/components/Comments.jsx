@@ -5,6 +5,7 @@ import "../App.css";
 import VotesForComments from "./VotesForComments";
 import DeleteComment from "./DeleteComment";
 import CommentAdder from "./CommentAdder";
+import PropTypes from "prop-types";
 
 class Comments extends Component {
   state = {
@@ -12,7 +13,6 @@ class Comments extends Component {
   };
 
   render() {
-    console.log(this.props, "oooooooooooo");
     return (
       <div>
         <h1>Comments</h1>
@@ -24,7 +24,7 @@ class Comments extends Component {
           return (
             <div className="comments">
               <p>{comment.body}</p>
-              {console.log(comment, "@@@@@@jjjj")}
+
               <DeleteComment
                 comment={comment}
                 deleteComment={this.deleteComment}
@@ -61,14 +61,11 @@ class Comments extends Component {
         `https://nc-newsdanny.herokuapp.com/api/comments/${commentToDelete._id}`
       )
       .then(deletedComment => {
-        console.log(deletedComment, "@@@@@:::::::vgfgrtgrtgrfergerg");
-        console.log(this.state.comments, "iiiooopppooiiooppoii");
         const comments = this.state.comments;
         const newCommentArray = comments.filter(comment => {
-          console.log(comment, "{}{}{");
           return comment._id !== deletedComment.data.comment._id;
         });
-        console.log(newCommentArray, "{{{{{{{}}}}}}}}}");
+
         this.setState({
           comments: newCommentArray
         });
@@ -89,5 +86,9 @@ class Comments extends Component {
       });
   };
 }
+
+Comments.propTypes = {
+  articleid: PropTypes.Array
+};
 
 export default Comments;

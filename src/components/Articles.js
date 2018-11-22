@@ -17,18 +17,22 @@ class Articles extends Component {
         <ArticleAdder topicslug={this.props.match.params.topic_slug} />
         {this.state.articles.map(article => {
           return (
-            
             <div className="articletitle">
-            <div>
-              <Votes className="articleVote" votes={article.votes} articleid={article._id} />
+              <div>
+                <Votes
+                  className="articleVote"
+                  votes={article.votes}
+                  articleid={article._id}
+                />
               </div>
               <Link to={`/articles/${article._id}`}>
                 <div className="article">
-                  <h1 className="Title" className='articleTitle'>{article.title}</h1>
-                  <p>{article.body}</p>
+                  <h1 className="Title" className="articleTitle">
+                    {article.title}
+                  </h1>
+                  <p>{article.body.substring(0, 100) + "....."}</p>
                 </div>
               </Link>
-              
             </div>
           );
         })}

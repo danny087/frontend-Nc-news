@@ -29,7 +29,6 @@ class VotesForComments extends Component {
         }?vote=${direction}`
       )
       .then(comments => {
-        console.log(comments.data, "hello");
         this.setState({
           votes:
             direction === "up" ? this.state.votes + 1 : this.state.votes - 1

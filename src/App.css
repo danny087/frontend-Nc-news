@@ -117,8 +117,8 @@
 }
 
 .articletitle {
-  display:grid;
-  grid-template-columns:10% 90%;
+  display: grid;
+  grid-template-columns: 20% 80%;
   background-color: white;
   padding-top: 50px;
   padding-right: 30px;
@@ -126,8 +126,8 @@
   padding-left: 80px;
   margin-bottom: 50px;
   margin-top: 5px;
-  margin-left:200px;
-  margin-right:200px;
+  margin-left: 200px;
+  margin-right: 200px;
   border: 3px solid grey;
 }
 
@@ -146,6 +146,7 @@
   font-size: 20px;
   display: inline-block;
   border-radius: 50%;
+  background-color: green;
 }
 
 .articles {
@@ -159,32 +160,28 @@
 }
 
 .comments {
+  margin-top: 15%;
   margin-right: 50%;
   margin-left: 15%;
   border: 5px solid black;
+  align-content: center;
 }
 
-.content{
-
+.content {
 }
 
-
-
-.articletitle a{
-  color:black;
+.articletitle a {
+  color: black;
   text-decoration: none;
 }
 
 .articleVote {
-  background-color:#d9d9db
+  background-color: #d9d9db;
 }
 
-.Title{
-  font-size: 35px
+.Title {
+  font-size: 35px;
 }
 
-
-.buttons{
-
-  }
-  
+.buttons {
+}

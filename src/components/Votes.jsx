@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link, Route } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
+import PropTypes from "prop-types";
 
 class Votes extends Component {
   state = {
@@ -9,7 +10,6 @@ class Votes extends Component {
   };
 
   render() {
-    console.log(this.props.articleid, "goodbye");
     return (
       <div>
         <button
@@ -38,7 +38,6 @@ class Votes extends Component {
         }?vote=${direction}`
       )
       .then(article => {
-        console.log(article, "hello");
         this.setState({
           votes:
             direction === "up" ? this.state.votes + 1 : this.state.votes - 1
@@ -46,5 +45,10 @@ class Votes extends Component {
       });
   }
 }
+
+Votes.propTypes = {
+  articleid: PropTypes.Array,
+  votes: PropTypes.Number
+};
 
 export default Votes;

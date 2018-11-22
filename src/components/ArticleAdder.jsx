@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link, Route } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
+import PropTypes from "prop-types";
 
 class ArticleAdder extends Component {
   state = {
@@ -24,13 +25,11 @@ class ArticleAdder extends Component {
   }
 
   handleChange = e => {
-    console.log(e.target.value);
     this.setState({
       text: e.target.value
     });
   };
   handleTitleChange = e => {
-    console.log(e.target.value);
     this.setState({
       title: e.target.value
     });
@@ -52,11 +51,14 @@ class ArticleAdder extends Component {
         newArticle
       )
       .then(addArticle => {
-        console.log(addArticle, "@@@@@@@@@");
         this.setState({});
       });
   };
   componentDidUpdate() {}
 }
+
+ArticleAdder.propTypes = {
+  topicslug: PropTypes.Array
+};
 
 export default ArticleAdder;

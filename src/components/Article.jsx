@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Route } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
 import Comments from "./Comments";
@@ -8,22 +8,10 @@ import DeleteComment from "./DeleteComment";
 
 class Article extends Component {
   state = {
-    article: {}
+    article: {},
+    errStatus: null
   };
 
-  render() {
-    return (
-      <div>
-        <div className="articles">
-          <h1>{this.state.article.title}</h1>
-          <p>{this.state.article.body}</p>
-        </div>
-        <div>
-          <Comments articleid={this.props.match.params._id} />
-        </div>
-      </div>
-    );
-  }
   componentDidMount() {
     axios
       .get(
@@ -35,7 +23,34 @@ class Article extends Component {
         this.setState({
           article: data.article
         });
+      })
+      .catch(err => {
+        this.setState({ errStatus: err });
       });
+  }
+  render() {
+    if (this.state.errStatus)
+      return (
+        <Redirect
+          to={{
+            pathname: "/NotFound",
+            state: {
+              message: "There is no such article. "
+            }
+          }}
+        />
+      );
+    return (
+      <div>
+        <div className="articles">
+          <h1>{this.state.article.title}</h1>
+          <p>{this.state.article.body}</p>
+        </div>
+        <div>
+          <Comments articleid={this.props.match.params._id} />
+        </div>
+      </div>
+    );
   }
 }
 

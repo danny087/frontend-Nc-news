@@ -4,6 +4,7 @@ import "./App.css";
 import Articles from "./components/Articles";
 import Button from "./components/Button";
 import Article from "./components/Article";
+import NotFound from "./components/NotFound";
 
 class App extends Component {
   buttonNames = [
@@ -21,6 +22,7 @@ class App extends Component {
           alt="northcoders logo"
         />
         <Button className="buttons" buttonNames={this.buttonNames} />
+        <Route exact strict path="/NotFound" component={NotFound} />
         <Route exact path="/" component={Articles} />
         <Route exact path="/articles/:_id" component={Article} />
         <Route exact path="/topics/:topic_slug/articles" component={Articles} />
