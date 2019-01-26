@@ -4,7 +4,7 @@ Check out the latest articles about topics like coding, football and cooking. Vo
 
 This is the front-end for my NC-news project. When interacting  with it, it sends requests to my back-end API and updates the database when you create or vote on a new article and comment.
 
-This application was made for me to get to grips with everything I learnt when on the Front-end side of the course at northcoders.
+This application was developed  for me to get to grips with everything I learnt when on the Front-end side of the course at   Northcoders.
 
 
 # Getting Started
