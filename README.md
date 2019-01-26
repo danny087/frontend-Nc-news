@@ -1,8 +1,8 @@
 My northcoders news application. Check out the latest articles about topics like coding, football and cooking. Vote on your best articles and comments and even write a article and comment of your own.
 
-This is my front-end for my NC-news project. When interating with it, it sends requests to my back-end api and updates the database when you create a new article and comment or like a comment or an article.
+This is my front-end for my NC-news project. When interacting  with it, it sends requests to my back-end api and updates the database when you create a new article and comment or like a comment or an article.
 
-This applaction was made for me to get to grips with everything I learnt when on the back-end side of the course at northcoders.
+This application was made for me to get to grips with everything I learnt when on the back-end side of the course at northcoders.
 
 
 
