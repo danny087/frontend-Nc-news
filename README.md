@@ -1,13 +1,13 @@
-My northcoders news application. Check out the latest articles about topics like coding, football and cooking. Vote on your best articles and comments and even write a article and comment of your own.
+My northcoders news application.
+
+Check out the latest articles about topics like coding, football and cooking. Vote on your best articles and comments and even write a article and comment of your own.
 
 This is my front-end for my NC-news project. When interacting  with it, it sends requests to my back-end api and updates the database when you create a new article and comment or like a comment or an article.
 
-This application was made for me to get to grips with everything I learnt when on the back-end side of the course at northcoders.
+This application was made for me to get to grips with everything I learnt when on the Front-end side of the course at northcoders.
 
 
-
-
-Getting Started
+# Getting Started
 
 
 For developers
@@ -17,13 +17,11 @@ Install project dependencies:
 
 $ npm install
 
-now we need to set up a new con
+Once the dependencies are installed, you can then launch the site with npm start.
 
 
-Run npm start to run on your browser as it was made with React.
+The site can be viewed on:
 
-
-
-
+https://festive-cray-b58dc9.netlify.com
 
 
